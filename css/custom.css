@@ -1,0 +1,10 @@
+.container {
+    width: 90%;
+    padding: 25px;
+    margin: auto;
+}
+
+.search-nav {
+    display: flex;
+    justify-content: space-between;
+}
