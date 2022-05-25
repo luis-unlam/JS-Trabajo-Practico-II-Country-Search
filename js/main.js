@@ -1,5 +1,8 @@
 const searchInput = document.querySelector('#search-input');
 
+const searchFilter = document.querySelector('#filter');
+
+
 const getCountries = async () => {
     const result = await fetch("https://restcountries.com/v3.1/all");
     const results = await result.json();
@@ -20,19 +23,26 @@ const debouncedGetCountries = async (event) => {
     results.forEach(element => {
     createCard(element);})
     }
-    
     if(result.status === 404){
-        console.log('El pais que buscas no existe');}}
-
-    
+        console.log('El pais que buscas no existe');}
+    }  
   }
 
-function deleteAllCards() {
-    const charCard = document.querySelectorAll('.card');
-    charCard.forEach(card => card.remove());
-}  
+const GetAreas = async (event) => {
+    const value = event.target.value;
+    const resultRegion = await fetch(`https://restcountries.com/v3.1/region/${value}`);
+    
+    if(resultRegion.status === 200){
+    const resultRegionR = await resultRegion.json();
+    deleteAllCards();
+    console.log(searchFilter.value);
+    resultRegionR.forEach(element => {
+    createCard(element);})
+    }
 
-getCountries()
+    if(resultRegion.status === 404){
+        console.log('Error de region');}
+}   
 
 function createCard(element){
     const newCard = document.createElement('div');
@@ -49,9 +59,20 @@ function createCard(element){
     document.querySelector("#cards-container").appendChild(newCard);
 }
 
+function deleteAllCards() {
+    const charCard = document.querySelectorAll('.card');
+    charCard.forEach(card => card.remove());
+}
+
 let timer = 0;
 const debouncedFetch = (values) => {
   clearTimeout(timer);
   timer = setTimeout(() => debouncedGetCountries(values), 500);
 };
+
 searchInput.addEventListener('input', debouncedFetch);
+
+searchFilter.addEventListener("change",GetAreas)
+
+getCountries()
+
