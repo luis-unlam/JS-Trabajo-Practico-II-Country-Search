@@ -12,6 +12,7 @@ const getCountries = async () => {
 }
 
 const debouncedGetCountries = async (event) => {
+    searchFilter.value = "";
     const value = event.target.value;
     if(value!=0){
     const result = await fetch(`https://restcountries.com/v3.1/name/${value}`);
@@ -32,6 +33,7 @@ const debouncedGetCountries = async (event) => {
   }
 
 const GetAreas = async (event) => {
+    searchInput.value = "";
     const value = event.target.value;
     const resultRegion = await fetch(`https://restcountries.com/v3.1/region/${value}`);
     
