@@ -12,6 +12,7 @@ const getCountries = async () => {
 }
 
 const debouncedGetCountries = async (event) => {
+    searchFilter.value = "";
     const value = event.target.value;
     if(value!=0){
     const result = await fetch(`https://restcountries.com/v3.1/name/${value}`);
