@@ -9,3 +9,18 @@ const getCountries = async () => {
 
 getCountries()
 
+
+function createCard(element){
+    const newCard = document.createElement('div');
+    newCard.className = "card";
+    newCard.innerHTML = `
+    <img src="${element.flags.svg}" class="card-flag">
+    <div class="card-content">
+        <h3>${element.name.common}</h3>
+        <p>Capital: ${element.capital}</p>
+        <p>Population: ${element.population}</p>
+        <p>Region: ${element.region}</p>
+    </div>
+    `;
+    document.querySelector("#cards-container").appendChild(newCard);
+}
