@@ -1,12 +1,14 @@
 .container {
     width: 90%;
     padding: 25px;
-    margin: auto;
+    margin: 0;
+
 }
 
 .search-nav {
     display: flex;
     justify-content: space-between;
+    background-color: antiquewhite;
 }
 
 .cards__container{
@@ -14,11 +16,16 @@
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 20px;
+    background-color: antiquewhite;
+
 }
 
 .card {
     width: 300px;
     border: 1px solid #232323;
+    box-shadow: 5px 10px 8px 10px #888888;
+    background-color: white;
+
 }
 
 .card-content {
@@ -27,4 +34,34 @@
 
 .card-flag {
     width: 100%;
+}
+
+.search-nav__select{
+background-repeat:no-repeat;
+background-position:300px;
+max-width:200px;
+padding:12px;
+font-family:sans-serif;
+line-height:1;
+border-radius:5px;
+background-color:white;
+color:Black;
+font-size:15px;
+box-shadow:0 0 10px 0 Black;
+outline:none
+}
+
+.search-nav__input{
+background-repeat:no-repeat;
+background-position:300px;
+max-width:200px;
+padding:12px;
+font-family:sans-serif;
+line-height:1;
+border-radius:5px;
+background-color:white;
+color:Black;
+font-size:15px;
+box-shadow:0 0 10px 0 Black;
+outline:none
 }
