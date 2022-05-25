@@ -8,3 +8,23 @@
     display: flex;
     justify-content: space-between;
 }
+
+.cards__container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.card {
+    width: 300px;
+    border: 1px solid #232323;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.card-flag {
+    width: 100%;
+}
