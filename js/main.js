@@ -1,14 +1,29 @@
+const searchInput = document.querySelector('#search-input');
+
 const getCountries = async () => {
     const result = await fetch("https://restcountries.com/v3.1/all");
     const results = await result.json();
     results.forEach(element => {
-        createCard(element)
-        
+        createCard(element)   
     });
 }
 
-getCountries()
+const debouncedGetCountries = async (event) => {
+    const value = event.target.value;
+    const result = await fetch(`https://restcountries.com/v3.1/name/${value}`);
+    const results = await result.json();
+    deleteAllCards();
+    results.forEach(element => {
+      createCard(element);
+    })
+  }
 
+const deleteAllCards = () => {
+    const charCard = document.querySelectorAll('.card');
+    charCard.forEach(card => card.remove());
+  };  
+
+getCountries()
 
 function createCard(element){
     const newCard = document.createElement('div');
@@ -24,3 +39,10 @@ function createCard(element){
     `;
     document.querySelector("#cards-container").appendChild(newCard);
 }
+
+let timer = 0;
+const debouncedFetch = (values) => {
+  clearTimeout(timer);
+  timer = setTimeout(() => debouncedGetCountries(values), 500);
+};
+searchInput.addEventListener('input', debouncedFetch);
