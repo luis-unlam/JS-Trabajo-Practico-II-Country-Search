@@ -25,6 +25,9 @@ const debouncedGetCountries = async (event) => {
     }
     if(result.status === 404){
         console.log('El pais que buscas no existe');}
+    }
+    else{
+        getCountries();
     }  
   }
 
