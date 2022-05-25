@@ -10,18 +10,27 @@ const getCountries = async () => {
 
 const debouncedGetCountries = async (event) => {
     const value = event.target.value;
+    if(value!=0){
     const result = await fetch(`https://restcountries.com/v3.1/name/${value}`);
+
+    if(result.status === 200){
     const results = await result.json();
     deleteAllCards();
+    console.log(value)
     results.forEach(element => {
-      createCard(element);
-    })
+    createCard(element);})
+    }
+    
+    if(result.status === 404){
+        console.log('El pais que buscas no existe');}}
+
+    
   }
 
-const deleteAllCards = () => {
+function deleteAllCards() {
     const charCard = document.querySelectorAll('.card');
     charCard.forEach(card => card.remove());
-  };  
+}  
 
 getCountries()
 
