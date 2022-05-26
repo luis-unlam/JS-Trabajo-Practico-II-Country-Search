@@ -2,6 +2,8 @@ const searchInput = document.querySelector('#search-input');
 
 const searchFilter = document.querySelector('#filter');
 
+const searchP = document.querySelector('#search-nav__p')
+
 
 const getCountries = async () => {
     const result = await fetch("https://restcountries.com/v3.1/all");
@@ -25,7 +27,9 @@ const debouncedGetCountries = async (event) => {
     createCard(element);})
     }
     if(result.status === 404){
-        console.log('El pais que buscas no existe');}
+        searchP.textContent = "El pais que buscas no existe"
+        deleteAllCards();
+    }
     }
     else{
         getCountries();
