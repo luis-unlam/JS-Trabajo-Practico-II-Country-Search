@@ -1,0 +1,17 @@
+@media screen and (max-width:767px) {
+    .card{
+        margin:auto;
+    }
+
+    .search-nav{
+        flex-direction: column;
+    }
+
+    .search-nav__select{
+        margin-top:20px;
+    }
+
+    .search-nav__input{
+        width:93%;
+    }
+}
