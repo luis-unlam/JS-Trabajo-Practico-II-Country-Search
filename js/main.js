@@ -41,7 +41,9 @@ const GetAreas = async (event) => {
     searchP.textContent = "";
     const value = event.target.value;
     const resultRegion = await fetch(`https://restcountries.com/v3.1/region/${value}`);
+ 
     
+
     if(resultRegion.status === 200){
         const resultRegionR = await resultRegion.json();
         deleteAllCards();
@@ -52,6 +54,11 @@ const GetAreas = async (event) => {
 
     if(resultRegion.status === 404){
         console.log('Error de region');
+    }
+
+    if(value === ""){
+        deleteAllCards()
+        getCountries()
     }
 }   
 
