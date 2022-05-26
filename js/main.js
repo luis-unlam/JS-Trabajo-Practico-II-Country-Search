@@ -50,7 +50,8 @@ const GetAreas = async (event) => {
     }
 
     if(resultRegion.status === 404){
-        console.log('Error de region');}
+        console.log('Error de region');
+    }
 }   
 
 function createCard(element){
