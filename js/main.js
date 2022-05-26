@@ -38,6 +38,7 @@ const debouncedGetCountries = async (event) => {
 
 const GetAreas = async (event) => {
     searchInput.value = "";
+    searchP.textContent = "";
     const value = event.target.value;
     const resultRegion = await fetch(`https://restcountries.com/v3.1/region/${value}`);
     
