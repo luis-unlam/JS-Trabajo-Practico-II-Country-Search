@@ -1,7 +1,5 @@
 const searchInput = document.querySelector('#search-input');
-
 const searchFilter = document.querySelector('#filter');
-
 const searchP = document.querySelector('#search-nav__p')
 
 
@@ -23,7 +21,6 @@ const debouncedGetCountries = async (event) => {
         if(result.status === 200){
             const results = await result.json();
             deleteAllCards();
-            console.log(value)
             results.forEach(element => {
             createCard(element);})
         }
@@ -31,17 +28,20 @@ const debouncedGetCountries = async (event) => {
             searchP.textContent = "El pais que buscas no existe"
             deleteAllCards();
         }
-    }else{
+    }
+    else{
         getCountries();
     }  
 }
 
-const GetAreas = async (event) => {
+const GetRegion = async (event) => {
     searchInput.value = "";
     searchP.textContent = "";
     const value = event.target.value;
     const resultRegion = await fetch(`https://restcountries.com/v3.1/region/${value}`);
     
+    getCountries
+
     if(resultRegion.status === 200){
         const resultRegionR = await resultRegion.json();
         deleteAllCards();
@@ -51,7 +51,8 @@ const GetAreas = async (event) => {
     }
 
     if(resultRegion.status === 404){
-        console.log('Error de region');
+        console.log('Error de region')
+
     }
 }   
 
@@ -78,12 +79,13 @@ function deleteAllCards() {
 let timer = 0;
 const debouncedFetch = (values) => {
     clearTimeout(timer);
+    console.log(values);
     timer = setTimeout(() => debouncedGetCountries(values), 500);
 };
 
 searchInput.addEventListener('input', debouncedFetch);
 
-searchFilter.addEventListener("change",GetAreas);
+searchFilter.addEventListener("change",GetRegion);
 
 getCountries();
 
