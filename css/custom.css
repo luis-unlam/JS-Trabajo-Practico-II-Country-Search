@@ -35,33 +35,32 @@
 .card-flag {
     width: 100%;
 }
-
 .search-nav__select{
-background-repeat:no-repeat;
-background-position:300px;
-max-width:200px;
-padding:12px;
-font-family:sans-serif;
-line-height:1;
-border-radius:5px;
-background-color:white;
-color:Black;
-font-size:15px;
-box-shadow:0 0 10px 0 Black;
-outline:none;
+    background-repeat:no-repeat;
+    background-position:300px;
+    max-width:200px;
+    padding:12px;
+    font-family:sans-serif;
+    line-height:1;
+    border-radius:5px;
+    background-color:white;
+    color:Black;
+    font-size:15px;
+    box-shadow:0 0 10px 0 Black;
+    outline:none;
 }
-
+    
 .search-nav__input{
-background-repeat:no-repeat;
-background-position:300px;
-max-width:200px;
-padding:12px;
-font-family:sans-serif;
-line-height:1;
-border-radius:5px;
-background-color:white;
-color:Black;
-font-size:15px;
-box-shadow:0 0 10px 0 Black;
-outline:none;
+    background-repeat:no-repeat;
+    background-position:300px;
+    max-width:200px;
+    padding:12px;
+    font-family:sans-serif;
+    line-height:1;
+    border-radius:5px;
+    background-color:white;
+    color:Black;
+    font-size:15px;
+    box-shadow:0 0 10px 0 Black;
+    outline:none;
 }
