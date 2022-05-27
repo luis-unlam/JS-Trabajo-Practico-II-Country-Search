@@ -18,9 +18,9 @@ const debouncedGetCountries = async (event) => {
     if(value!=0){
         const result = await fetch(`https://restcountries.com/v3.1/name/${value}`);
         if(result.status === 200){
-            const results = await result.json();
+            const resultJson = await result.json();
             deleteAllCards();
-            results.forEach(element => {
+            resultJson.forEach(element => {
             createCard(element);})
         }
         if(result.status === 404){
@@ -36,22 +36,22 @@ const debouncedGetCountries = async (event) => {
 
 const GetRegion = async (event) => {
     searchInput.value = "";
+    if(searchInput.value === ""){
+        deleteAllCards()
+        getCountries()
+    }
     searchP.textContent = "";
-    const value = event.target.value;
-    const resultRegion = await fetch(`https://restcountries.com/v3.1/region/${value}`);
+    const valueRegion = event.target.value;
+    const resultRegion = await fetch(`https://restcountries.com/v3.1/region/${valueRegion}`);
     if(resultRegion.status === 200){
-        const resultRegionR = await resultRegion.json();
+        const resultRegionJson = await resultRegion.json();
         deleteAllCards();
         console.log(searchFilter.value);
-        resultRegionR.forEach(element => {
+        resultRegionJson.forEach(element => {
         createCard(element);})
     }
     if(resultRegion.status === 404){
         console.log('Error de region')
-    }
-    if(value === ""){
-        deleteAllCards()
-        getCountries()
     }
 }   
 
