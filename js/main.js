@@ -83,8 +83,7 @@ function deleteAllCards() {
 let timer = 0;
 const debouncedFetch = (values) => {
     clearTimeout(timer);
-    console.log(values);
-    timer = setTimeout(() => debouncedGetCountries(values), 500);
+    setTimeout(() => debouncedGetCountries(values), 500);
 };
 
 searchInput.addEventListener('input', debouncedFetch);
