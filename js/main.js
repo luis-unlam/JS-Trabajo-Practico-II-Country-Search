@@ -30,6 +30,7 @@ const debouncedGetCountries = async (event) => {
         }
     }
     else{
+        deleteAllCards();
         getCountries();
     }  
 }
