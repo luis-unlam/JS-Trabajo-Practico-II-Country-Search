@@ -74,3 +74,9 @@
     font-family: 'Roboto Slab', serif;
     font-size: 15px;
 }
+header{
+    display: block;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
