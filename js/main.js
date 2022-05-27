@@ -11,7 +11,7 @@ const getCountries = async () => {
     });
 }
 
-const debouncedGetCountries = async (event) => {
+const getCountriesByName = async (event) => {
     searchFilter.value = "";
     searchP.textContent = "";
     const value = event.target.value;
@@ -76,7 +76,7 @@ function deleteAllCards() {
 }
 
 const debouncedFetch = (input_datos) => {
-    setTimeout(() => debouncedGetCountries(input_datos), 500);
+    setTimeout(() => getCountriesByName(input_datos), 500);
 };
 
 searchInput.addEventListener('input', debouncedFetch);
