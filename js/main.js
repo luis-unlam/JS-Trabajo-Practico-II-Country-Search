@@ -17,7 +17,6 @@ const debouncedGetCountries = async (event) => {
     const value = event.target.value;
     if(value!=0){
         const result = await fetch(`https://restcountries.com/v3.1/name/${value}`);
-
         if(result.status === 200){
             const results = await result.json();
             deleteAllCards();
@@ -40,9 +39,6 @@ const GetRegion = async (event) => {
     searchP.textContent = "";
     const value = event.target.value;
     const resultRegion = await fetch(`https://restcountries.com/v3.1/region/${value}`);
- 
-    
-
     if(resultRegion.status === 200){
         const resultRegionR = await resultRegion.json();
         deleteAllCards();
@@ -50,11 +46,9 @@ const GetRegion = async (event) => {
         resultRegionR.forEach(element => {
         createCard(element);})
     }
-
     if(resultRegion.status === 404){
         console.log('Error de region')
     }
-
     if(value === ""){
         deleteAllCards()
         getCountries()
@@ -81,15 +75,11 @@ function deleteAllCards() {
     charCard.forEach(card => card.remove());
 }
 
-let timer = 0;
-const debouncedFetch = (values) => {
-    clearTimeout(timer);
-    setTimeout(() => debouncedGetCountries(values), 500);
+const debouncedFetch = (input_datos) => {
+    setTimeout(() => debouncedGetCountries(input_datos), 500);
 };
 
 searchInput.addEventListener('input', debouncedFetch);
-
 searchFilter.addEventListener("change",GetRegion);
-
 getCountries();
 
